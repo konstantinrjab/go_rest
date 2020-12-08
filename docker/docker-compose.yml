@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  gotour_mysql:
+    container_name: gotour_mysql
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'gotour'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+    ports:
+      - '3308:3306'
+    volumes:
+      - gotour_mysql:/var/lib/mysql
+volumes:
+  gotour_mysql:
